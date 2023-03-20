@@ -27,8 +27,18 @@ RUN apt-get update
 
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+#RUN #service docker stop
+#RUN #nohup docker daemon -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+RUN usermod -aG sudo jenkins
+RUN usermod -aG docker jenkins
+
 USER jenkins
+
+RUN sudo service docker start
 
 RUN dotnet tool install --global dotnet-sonarscanner
 
 ENV PATH "$PATH:~/.dotnet/tools"
+
