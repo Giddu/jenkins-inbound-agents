@@ -3,7 +3,7 @@ FROM docker.io/giddu/jenkins-inbound-agent:awscli
 USER root
 
 RUN apt-get update  \
-    && apt-get install -y wget zip apt-get -y install buildah
+    && apt-get install -y wget zip buildah
 
 RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
