@@ -1,6 +1,6 @@
 FROM giddu/jenkins-inbound-agent:sonarscanner
 
-ENV PYTHON_VERSION=3.7.16
+ENV PYTHON_VERSION=3.8.16
 
 USER root
 
@@ -15,4 +15,4 @@ RUN ldconfig /opt/Python$PYTHON_VERSION
 
 USER jenkins
 
-RUN python3.7 --version
+RUN python3.8 --version
