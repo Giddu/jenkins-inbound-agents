@@ -16,7 +16,6 @@ RUN ldconfig /opt/Python$PYTHON_VERSION
 USER jenkins
 
 RUN python3.7 -m ensurepip --upgrade
-RUN python3.7 -m pip install zappa
+RUN python3.7 -m pip install virtualenv
 
 ENV PATH "$PATH:~/.local/bin"
-RUN ~/.local/bin/zappa --version
