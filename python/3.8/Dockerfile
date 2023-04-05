@@ -15,4 +15,7 @@ RUN ldconfig /opt/Python$PYTHON_VERSION
 
 USER jenkins
 
-RUN python3.8 --version
+RUN python3.8 -m ensurepip --upgrade
+RUN python3.8 -m pip install virtualenv
+
+ENV PATH "$PATH:~/.local/bin"
